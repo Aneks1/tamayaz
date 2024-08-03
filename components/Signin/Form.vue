@@ -58,16 +58,13 @@ export default {
             path: '/'
         })
         // session.value = ''
-        if(session.value != '') navigateTo('/')
+        if(session && session.value && session.value.length > 1) navigateTo('/')
     },
     methods: {
-        async submit() {
-            const config = useRuntimeConfig()
-            const apiBaseUrl = config.public.apiBaseUrl
-           
+        async submit() {         
             if(!this.email || !this.phone) return window.alert('Please complete all the fields')
 
-            const res = await $fetch(`${apiBaseUrl}/login`, {
+            const res = await $fetch(`/api/login`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -78,13 +75,13 @@ export default {
                 }
             })
 
-            if(!res.token) return window.alert('Invalid email/phone.')
+            if(!res.data.token) return window.alert('Invalid email/phone.')
 
             const session = useCookie('session', {
                 maxAge: 60*60*24,
                 path: '/'
             })
-            session.value = res.token
+            session.value = res.data.token
             navigateTo('/')
         }
     }

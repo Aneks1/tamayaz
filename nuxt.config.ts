@@ -5,8 +5,8 @@ export default defineNuxtConfig({
 	devtools: { enabled: true },
 	modules: ['@nuxt/ui'],
 	runtimeConfig: {
-		public: {
-		  apiBaseUrl: process.env.API_BASE_URL || 'http://localhost:3001/api',
-		},
-	  },
+		public:	{
+			mongoUrl: process.env.MONGO_URL
+		}
+	}
 });

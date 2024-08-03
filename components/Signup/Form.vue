@@ -73,15 +73,13 @@ export default {
             reader.readAsDataURL(file);
         },
         async submit() {
-            const config = useRuntimeConfig()
-            const apiBaseUrl = config.public.apiBaseUrl
             const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
            
             if(!this.email || !this.phone || !this.image) return window.alert('Please complete all the fields')
             if(!emailRegex.test(this.email)) return window.alert('Invalid email')
             if(!this.phone.startsWith('+')) return window.alert('Phone number should start with +{country code}')
 
-            await $fetch(`${apiBaseUrl}/register`, {
+            await $fetch(`/api/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -101,7 +99,7 @@ export default {
                 cart: localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')).items : []
             }
 
-            const data = await $fetch(`${apiBaseUrl}/email`, {
+            const data = await $fetch(`/api/email`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
