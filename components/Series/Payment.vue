@@ -72,7 +72,7 @@ export default {
 	},
 	methods: {
 		setCart() {
-			if(price == null) return window.alert('Choose a price')
+			if(this.price == null) return window.alert('Choose a price')
 			console.log(this.item)
 
 			const data = nuxtStorage.localStorage.getData('cart') ? JSON.parse(nuxtStorage.localStorage.getData('cart')).items : []
