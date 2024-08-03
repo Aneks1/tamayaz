@@ -29,7 +29,7 @@ export default defineEventHandler(async (event) => {
     };
 
     let data
-    transporter.sendMail(mailOptions, (error: any, info: any) => {
+    try     transporter.sendMail(mailOptions, (error: any, info: any) => {
         if (error) {
             console.log(error)
             return data = { status: 500 }
@@ -37,13 +37,16 @@ export default defineEventHandler(async (event) => {
         console.log('Message sent: %s', info.messageId)
         return data = { data: { messageId: info.messageId } }
     });
+    catch{
+        data = 'error has occured'
+    }
     
     return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve({ data: data, status: 200, auth: {
             user: process.env.EMAIL,
             pass: process.env.EMAIL_PASS,
-        }, mailOptions});
+        }, mailOptions: mailOptions, transporter: transporter});
         });
       });
 })
