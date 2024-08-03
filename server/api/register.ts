@@ -15,6 +15,7 @@ export default defineEventHandler(async (event) => {
         await userModel.findOne({ phone: req.phone }) 
     ) return { status: 409, error: 'Email or phone is already in use' }
     else {
+        const data = new userModel({ email: req.email, phone: req.phone });
         return { status: 200, mesage: 'no' }
     }
     const data = new userModel({ email: req.email, phone: req.phone });
