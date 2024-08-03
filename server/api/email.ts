@@ -35,11 +35,15 @@ export default defineEventHandler(async (event) => {
             return data = { status: 500 }
         }
         console.log('Message sent: %s', info.messageId)
-        return data = { status: 200, data: { messageId: info.messageId } }
+        return data = { data: { messageId: info.messageId } }
     });
     
-    return { data, status: 200, auth: {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve({ data: data, status: 200, auth: {
             user: process.env.EMAIL,
             pass: process.env.EMAIL_PASS,
-        }, mailOptions}
+        }, mailOptions});
+        });
+      });
 })
