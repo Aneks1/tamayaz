@@ -79,6 +79,15 @@ export default {
             if(!emailRegex.test(this.email)) return window.alert('Invalid email')
             if(!this.phone.startsWith('+')) return window.alert('Phone number should start with +{country code}')
 
+            const a = await $fetch(`/api/a`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+
+            console.log(a)
+
             await $fetch(`/api/register`, {
                 method: 'POST',
                 headers: {
