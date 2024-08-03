@@ -4,7 +4,7 @@ import userModel from './mongoSchemas/userSchema'
 export default defineEventHandler(async (event) => {
     const req = await readBody(event)
     console.log(req)
-    return { status: 200, data: req }
+    return { status: 200, data: req, mongo: process.env.MONGO_URL, model: userModel }
     if (
         await userModel.findOne({ email: req.email, phone: req.phone })
     ) return { status: 201, data: { user: await userModel.findOne({ email: req.email, phone: req.phone }) } }
