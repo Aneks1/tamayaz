@@ -79,16 +79,7 @@ export default {
             if(!emailRegex.test(this.email)) return window.alert('Invalid email')
             if(!this.phone.startsWith('+')) return window.alert('Phone number should start with +{country code}')
 
-            const a = await $fetch(`/api/a`, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            })
-
-            console.log(a)
-
-            const b = await $fetch(`/api/register`, {
+            const register = await $fetch(`/api/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -98,7 +89,8 @@ export default {
                     phone: this.phone,
                 })
             })
-            console.log(b)
+
+            if(register.status == 409) return window.alert('Email is already in use and not associated with phone or phone is alrady in use and not associated with email')
 
             const emailData = {
                 user: {
@@ -116,8 +108,8 @@ export default {
                 },
                 body: JSON.stringify(emailData)
             })
-
             console.log(data)
+
             navigateTo('/')
         }
     }

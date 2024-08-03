@@ -75,6 +75,7 @@
 </template>
 
 <script>
+import nuxtStorage from 'nuxt-storage'
 export default {
 	data() {
 		return {
@@ -92,12 +93,12 @@ export default {
 		};
 	},
 	mounted() {
-		this.items = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')).items : []
+		this.items = nuxtStorage.localStorage.getData('cart') ? JSON.parse(nuxtStorage.localStorage.getData('cart')).items : []
 	},
 	methods: {
 		removeItem() {
 			this.items.splice(this.contextMenu.card.itemIndex, 1)
-			localStorage.setItem('cart', JSON.stringify({ items: this.items }))
+			nuxtStorage.localStorage.setData('cart', JSON.stringify({ items: this.items }))
 		},
 		toggleContextOverlay(overlay, visible, ...args) {
             this.contextMenu.visible = visible;
@@ -163,4 +164,16 @@ export default {
 .npmBtn[datatype="delete"]:hover {
     color: white;
     background-color: rgba(255, 54, 54, 0.75);
-}</style>
+}
+
+.card-bg:hover {
+	transition: all 0.5s;
+	background: #d9d9d9;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+}
+.card-bg {
+	background: linear-gradient(to bottom right, rgb(250, 250, 250), rgb(245, 245, 245));
+	border: 1px solid rgba(0, 0, 0, 0.05);
+	box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+}
+</style>

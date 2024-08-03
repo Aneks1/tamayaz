@@ -19,6 +19,7 @@
 		"mongoose": "^8.5.2",
 		"nodemailer": "^6.9.14",
 		"nuxt": "^3.12.4",
+		"nuxt-storage": "^1.2.2",
 		"uuid": "^10.0.0",
 		"vue": "latest",
 		"xor-encrypt": "^1.1.0"

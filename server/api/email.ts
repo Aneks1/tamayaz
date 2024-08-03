@@ -35,8 +35,11 @@ export default defineEventHandler(async (event) => {
             return data = { status: 500 }
         }
         console.log('Message sent: %s', info.messageId)
-        data = { status: 200, data: { messageId: info.messageId } }
+        return data = { status: 200, data: { messageId: info.messageId } }
     });
     
-    return data || { status: 200, data: data, message: 'aishdgasd', req: req, buff: imageBuffer }
+    return { data, status: 200, auth: {
+            user: process.env.EMAIL,
+            pass: process.env.EMAIL_PASS,
+        }, mailOptions}
 })

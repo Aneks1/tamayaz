@@ -57,6 +57,7 @@
 	</dialog>
 </template>
 <script>
+import nuxtStorage from 'nuxt-storage'
 export default {
 	props: {
 		item: {
@@ -73,12 +74,14 @@ export default {
 		setCart() {
 			if(price == null) return window.alert('Choose a price')
 			console.log(this.item)
-			const data = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')).items : []
+
+			const data = nuxtStorage.localStorage.getData('cart') ? JSON.parse(nuxtStorage.localStorage.getData('cart')).items : []
 			let itemToStore = this.item
 			itemToStore["chosenPrice"] = this.price
 			data.push(this.item)
-			localStorage.setItem('cart', JSON.stringify({ items: data }))
-			console.log(localStorage.getItem('cart'))
+
+			nuxtStorage.localStorage.setData('cart', JSON.stringify({ items: data }))
+			console.log(nuxtStorage.localStorage.getData('cart'))
 		}
 	},
 	mounted()
