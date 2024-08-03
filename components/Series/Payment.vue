@@ -71,6 +71,7 @@ export default {
 	},
 	methods: {
 		setCart() {
+			if(price == null) return window.alert('Choose a price')
 			console.log(this.item)
 			const data = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')).items : []
 			let itemToStore = this.item
