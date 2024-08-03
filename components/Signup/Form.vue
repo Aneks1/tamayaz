@@ -88,7 +88,7 @@ export default {
 
             console.log(a)
 
-            await $fetch(`/api/register`, {
+            const b = await $fetch(`/api/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -98,6 +98,7 @@ export default {
                     phone: this.phone,
                 })
             })
+            console.log(b)
 
             const emailData = {
                 user: {
