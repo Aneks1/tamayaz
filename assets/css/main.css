@@ -1,0 +1,5 @@
+*::selection {
+	--tw-bg-opacity: 1;
+	background-color: rgb(255 164 0 / 0.5) !important;
+	color: rgb(93 63 24 / var(--tw-text-opacity)) !important;
+}

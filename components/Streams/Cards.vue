@@ -1,0 +1,105 @@
+<template>
+	<div class=" bg-gradient-to-t from-base-100 via-base-100 to-base-100/95">
+		<div class="mx-auto py-32">
+			<div
+				class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12"
+			>
+				<h2
+					class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-base-content sm:text-4xl md:mx-auto"
+				>
+					Title
+				</h2>
+				<p class="text-base text-gray-700 md:text-lg">
+					Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+					accusantium doloremque rem aperiam, eaque ipsa quae.
+				</p>
+			</div>
+			<div
+				class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8 w-full lg:w-3/4 p-2 lg:mx-auto"
+			>
+				<a class="group w-full h-full" v-for="(item, index) in items" :key="index" :href="`/series/${item.name}`">
+					<div
+						class="rounded-2xl flex flex-col items-start gap-4 group-hover:scale-105 text-xprimary-content duration-300 card-bg"
+					>
+						<img :src="item.img" class="rounded-t-lg h-76 w-full" />
+						<div class="flex flex-col justify-between w-full h-full">
+							<div class="pb-2">
+								<p
+									class="text-xl font-medium text-xprimary-content text-center"
+								>
+									{{ item.name }}
+								</p>
+								<p class="text-md text-xsecondary-content text-center">
+									{{ item.org }}
+								</p>
+							</div>
+							<div class="w-full p-4">
+								<div
+									class="flex items-center justify-between text-md text-xprimary-content"
+								>
+									<p class="flex flex-col">
+										{{ item.desc }}
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</template>
+
+<script>
+import { computed, ref } from 'vue';
+export default {
+	data() {
+		return {
+			items: [
+				{
+					name: 'test',
+					org: 'test',
+					img: 'https://picsum.photos/600/800?random=1',
+					desc: 'dasdawjdhwiuas dasdh uwadsadoa dajkwhds akdj wasdkja dasdiow askd wahdgs di',
+				},
+				{
+					name: 'test2',
+					org: 'test2',
+					img: 'https://picsum.photos/600/800?random=2',
+					desc: 'dasdawjdhwiuas dasdh uwadsadoa dajkwhds akdj wasdkja dasdiow askd wahdgs di',
+				},
+				{
+					name: 'test3',
+					org: 'test3',
+					img: 'https://picsum.photos/600/800?random=3',
+					desc: 'dasdawjdhwiuas dasdh uwadsadoa dajkwhds akdj wasdkja dasdiow askd wahdgs di',
+				},
+				{
+					name: 'test4',
+					org: 'test4',
+					img: 'https://picsum.photos/600/800?random=4',
+					desc: 'dasdawjdhwiuas dasdh uwadsadoa dajkwhds akdj wasdkja dasdiow askd wahdgs di',
+				},
+				{
+					name: 'test5',
+					org: 'test5',
+					img: 'https://picsum.photos/600/800?random=5',
+					desc: 'dasdawjdhwiuas dasdh uwadsadoa dajkwhds akdj wasdkja dasdiow askd wahdgs di',
+				},
+				{
+					name: 'test6',
+					org: 'test6',
+					img: 'https://picsum.photos/600/800?random=6',
+					desc: 'dasdawjdhwiuas dasdh uwadsadoa dajkwhds akdj wasdkja dasdiow askd wahdgs di',
+				},
+				{
+					name: 'test7',
+					org: 'test7',
+					img: 'https://picsum.photos/600/800?random=7',
+					desc: 'dasdawjdhwiuas dasdh uwadsadoa dajkwhds akdj wasdkja dasdiow askd wahdgs di',
+				},
+			],
+		};
+	},
+};
+</script>
