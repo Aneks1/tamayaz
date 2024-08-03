@@ -16,6 +16,7 @@ export default defineEventHandler(async (event) => {
     ) return { status: 409, error: 'Email or phone is already in use' }
     else {
         const data = new userModel({ email: req.email, phone: req.phone });
+        await data.save();
         return { status: 200, mesage: 'no', data: data }
     }
     const data = new userModel({ email: req.email, phone: req.phone });
