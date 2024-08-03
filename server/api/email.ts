@@ -38,5 +38,5 @@ export default defineEventHandler(async (event) => {
         return data = { status: 200, data: { messageId: info.messageId } }
     });
     
-    return data
+    return data || { status: 200, data: data, message: 'aishdgasd' }
 })

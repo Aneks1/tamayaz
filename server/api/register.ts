@@ -1,7 +1,7 @@
 import { defineEventHandler, getQuery, readBody } from 'h3'
 import userModel from './mongoSchemas/userSchema'
 import mongoose from "mongoose";
-mongoose.connect(process.env.MONGO_URL as string);
+
 export default defineEventHandler(async (event) => {
     const req = await readBody(event)
     mongoose.connect(process.env.MONGO_URL as string);
@@ -17,9 +17,6 @@ export default defineEventHandler(async (event) => {
     else {
         const data = new userModel({ email: req.email, phone: req.phone });
         await data.save();
-        return { status: 200, mesage: 'no', data: data }
+        return { status: 201, data: data }
     }
-    const data = new userModel({ email: req.email, phone: req.phone });
-    await data.save();
-    return { status: 201, data: { user: data } }
 })

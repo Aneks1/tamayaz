@@ -117,6 +117,7 @@ export default {
                 body: JSON.stringify(emailData)
             })
 
+            console.log(data)
             navigateTo('/')
         }
     }
