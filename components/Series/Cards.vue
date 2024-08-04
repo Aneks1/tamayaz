@@ -15,7 +15,12 @@
 				</p>
 			</div>
 			<div
-				class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8 w-full lg:w-3/4 p-2 lg:mx-auto"
+				class="
+					grid 
+					gap-16
+					md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3 
+					box-border p-20 sm:p-32
+					w-full lg:mx-auto"
 			>
 				<button
 					class="group w-full h-full"

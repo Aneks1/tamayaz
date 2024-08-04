@@ -23,7 +23,12 @@
 				</h2>
 			</div>
 			<div
-				class="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-8 w-full lg:w-3/4 p-2 lg:mx-auto"
+				class="
+					grid 
+					gap-10
+					md:grid-cols-3 sm:grid-cols-1 lg:grid-cols-4
+					box-border px-20 py-20 sm:py-32
+					w-full lg:mx-auto"
 			>
 				<button
 					class="group w-full h-full"

@@ -1,6 +1,6 @@
 <template>
     <div class="form-bg w-vw h-screen w-screen flex flex-row items-center justify-center">
-        <div class="flex flex-col items-center justify-center left">
+        <div class="flex flex-col items-center justify-center">
             <div class="signup-form">
                 <div class="w-full box-border px-10">
                     <svg
@@ -38,9 +38,6 @@
                     </form>
                 </div>
             </div>
-        </div>
-        <div class="h-screen w-1/2 right">
-            SPACE TO ADD COOL IMAGE
         </div>
     </div>
 </template>
@@ -90,29 +87,7 @@ export default {
 <style>
 
 .form-bg {
-    background: linear-gradient(to bottom right, rgb(255, 249, 218), rgb(255, 252, 238));
-}
-@media (max-width: calc(100vh + 20rem)) {
-    .right {
-        display: none;
-    }
-    .left {
-        width: 100%;
-    }
-}
-@media (min-width: calc(100vh + 20rem)) {
-    .right {
-        display: flex;
-    }
-    .left {
-        width: 50%;
-    }
-}
-.right, .left {
-    height: 100vh;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    background: linear-gradient(to bottom right, #ffe13a, #ffbc35);
 }
 .file-upload-input {
     display: none;
@@ -147,16 +122,16 @@ export default {
 .signup-form input {
     width: 100%;
     padding: 0.75rem;
-    border-radius: 5px;
+    border-radius: 10rem;
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid black;
     color: black;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
 }
 .signup-form input[type="submit"] {
-    border-radius: 10rem;
     background: rgb(255, 217, 0);
     font-weight: bold;
+    width: 50%;
 }
 .signup-form input[type="submit"]:hover {
     background-color: #ffa400;

@@ -1,6 +1,6 @@
 <template>
     <div class="form-bg w-vw h-screen w-screen flex flex-row items-center justify-center">
-        <div class="h-screen w-1/2 flex left">
+        <div class="h-screen w-full flex flex-col justify-center items-center">
             <div class="signup-form">
                 <div class="w-full box-border px-10">
                     <svg
@@ -36,16 +36,15 @@
                         <input type="text" placeholder="Phone" v-model="phone">
                         <label for="input">
                             <input id="input" type="file" name="file" class="file-upload-input" accept="image/*" @change="fileUploaded">
-                            <div id="fake-btn">Upload File</div>
+                            <div id="fake-btn">
+                                <span>{{ imageName == '' ? 'Upload File' : imageName }}</span>
+                            </div>
                         </label>
                         <input type="submit" value="Submit">
                     </form>
                 </div>
             </div>
-        </div>
-        <div class="h-screen w-1/2 right">
-            SPACE TO ADD COOL IMAGE
-        </div>
+        </div>s
     </div>
 </template>
 <script>
@@ -55,7 +54,8 @@ export default {
         return {
             email: '',
             phone: '',
-            image: ''
+            image: '',
+            imageName: ''
         }
     },
     methods: {
@@ -63,6 +63,7 @@ export default {
             const target = event.target
             if(target.files == null) return
             const file = target.files[0]
+            this.imageName = file.name
 
             const reader = new FileReader();
   
@@ -78,7 +79,7 @@ export default {
            
             if(!this.email || !this.phone || !this.image) return window.alert('Please complete all the fields')
             if(!emailRegex.test(this.email)) return window.alert('Invalid email')
-            if(!this.phone.startsWith('+')) return window.alert('Phone number should start with +{country code}')
+            if(!Number.isInteger(parseInt(this.phone))) return window.alert('Phone number should be integer number')
 
             const register = await $fetch(`/api/register`, {
                 method: 'POST',
@@ -115,36 +116,14 @@ export default {
                 console.log(error.message)
             }
 
-            navigateTo('/')
+            navigateTo('/success')
         }
     }
 }
 </script>
 <style>
-@media (max-width: calc(100vh + 20rem)) {
-    .right {
-        display: none;
-    }
-    .left {
-        width: 100%;
-    }
-}
-@media (min-width: calc(100vh + 20rem)) {
-    .right {
-        display: flex;
-    }
-    .left {
-        width: 50%;
-    }
-}
-.right, .left {
-    height: 100vh;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 .form-bg {
-    background: linear-gradient(to bottom right, rgb(255, 249, 218), rgb(255, 252, 238));
+    background: linear-gradient(to bottom right, #ffe13a, #ffbc35);
 }
 .file-upload-input {
     display: none;
@@ -175,12 +154,13 @@ export default {
     gap: 2rem;
     box-sizing: border-box;
     padding: 4rem;
+    padding-top: 2rem;
 }
 .signup-form label {
     cursor: pointer;
     width: 100%;
     padding: 0.75rem;
-    border-radius: 5px;
+    border-radius: 10rem;
     background: rgba(0, 0, 0, 0.1);
     border: 1px solid black;
     color: black;
@@ -190,16 +170,16 @@ export default {
 .signup-form input {
     width: 100%;
     padding: 0.75rem;
-    border-radius: 5px;
+    border-radius: 10rem;
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid black;
     color: black;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
 }
 .signup-form input[type="submit"] {
-    border-radius: 10rem;
     background: rgb(255, 217, 0);
     font-weight: bold;
+    width: 50%;
 }
 .signup-form input[type="submit"]:hover {
     background-color: #ffa400;
