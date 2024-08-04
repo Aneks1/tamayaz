@@ -1,6 +1,6 @@
 <template>
     <div class="form-bg w-vw h-screen w-screen flex flex-row items-center justify-center">
-        <div class="h-screen w-1/2 flex flex-col items-center justify-center">
+        <div class="h-screen w-1/2 flex left">
             <div class="signup-form">
                 <div class="w-full box-border px-10">
                     <svg
@@ -43,7 +43,7 @@
                 </div>
             </div>
         </div>
-        <div class="h-screen w-1/2 flex flex-col items-center justify-center">
+        <div class="h-screen w-1/2 right">
             SPACE TO ADD COOL IMAGE
         </div>
     </div>
@@ -98,7 +98,7 @@ export default {
                     phone: this.phone
                 },
                 image: this.image,
-                cart: localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')).items : []
+                cart: nuxtStorage.localStorage.getData('cart') ? JSON.parse(nuxtStorage.localStorage.getData('cart')).items : []
             }
 
             try {
@@ -120,6 +120,28 @@ export default {
 }
 </script>
 <style>
+@media (max-width: calc(100vh + 20rem)) {
+    .right {
+        display: none;
+    }
+    .left {
+        width: 100%;
+    }
+}
+@media (min-width: calc(100vh + 20rem)) {
+    .right {
+        display: flex;
+    }
+    .left {
+        width: 50%;
+    }
+}
+.right, .left {
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .form-bg {
     background: linear-gradient(to bottom right, rgb(255, 249, 218), rgb(255, 252, 238));
 }
