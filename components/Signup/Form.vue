@@ -101,14 +101,18 @@ export default {
                 cart: localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')).items : []
             }
 
-            const data = await $fetch(`/api/email`, {
+            try {
+                const data = await $fetch(`/api/email`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(emailData)
-            })
-            console.log(data)
+                    body: JSON.stringify(emailData)
+                })
+                console.log(data)
+            } catch (error) {
+                console.log(error.message)
+            }
 
             navigateTo('/')
         }
