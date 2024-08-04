@@ -19,7 +19,7 @@ export default defineEventHandler(async (event) => {
         to: process.env.EMAIL,
         subject: 'Purchase purchased',
         text: `Purchase`,
-        html: `<b>email: ${req.user.email}\nphone: ${req.user.phone} purchased ${JSON.stringify({ cart: req.cart })}</b>`,
+        html: `<b>email:</b>`,
         attachments: [
             {
               filename: 'image.png',
