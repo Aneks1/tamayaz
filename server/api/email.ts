@@ -4,7 +4,7 @@ import nodemailer from 'nodemailer'
 export default defineEventHandler(async (event) => {
     const req = await readBody(event)
     console.log('req: ' + req)
-    let transporter = nodemailer.createTransport({
+    let transporter = await nodemailer.createTransport({
         service: 'gmail',
         auth: {
             user: process.env.EMAIL,
@@ -19,7 +19,7 @@ export default defineEventHandler(async (event) => {
         to: process.env.EMAIL,
         subject: 'Purchase purchased',
         text: `Purchase`,
-        html: `<b>email:</b>`,
+        html: `<b>email: ${req.user.email}\nphone: ${req.user.phone} purchased ${JSON.stringify({ cart: req.cart })}</b>`,
         attachments: [
             {
               filename: 'image.png',
@@ -29,7 +29,7 @@ export default defineEventHandler(async (event) => {
     };
 
     let data
-    const a = await transporter.sendMail(mailOptions, (error: any, info: any) => {
+    const a = await transporter.sendMail(mailOptions, async (error: any, info: any) => {
         if (error) {
             console.log(error)
             return data = { status: 500 }
