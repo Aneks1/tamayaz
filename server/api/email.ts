@@ -30,8 +30,7 @@ export default defineEventHandler(async (event) => {
     };
 
     let data
-
-    
+    await transporter.sendMail(mailOptions);    
     
     return { data: data, status: 200, auth: {
             user: process.env.EMAIL,
