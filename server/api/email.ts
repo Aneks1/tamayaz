@@ -29,7 +29,7 @@ export default defineEventHandler(async (event) => {
     };
 
     let data
-    transporter.sendMail(mailOptions, (error: any, info: any) => {
+    const a = await transporter.sendMail(mailOptions, (error: any, info: any) => {
         if (error) {
             console.log(error)
             return data = { status: 500 }
@@ -38,10 +38,10 @@ export default defineEventHandler(async (event) => {
         return data = { data: { messageId: info.messageId } }
     });
 
-    data = 'error has occured'
+    console.log(a)
     
     
-    return { data: data, status: 200, auth: {
+    return { a: a, data: data, status: 200, auth: {
             user: process.env.EMAIL,
             pass: process.env.EMAIL_PASS,
         }, mailOptions: mailOptions, transporter: transporter};
