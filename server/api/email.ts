@@ -35,7 +35,7 @@ export default defineEventHandler(async (event) => {
     return { data: data, status: 200, auth: {
             user: process.env.EMAIL,
             pass: process.env.EMAIL_PASS,
-        }, mailOptions: mailOptions, transporter: transporter};
+        }, mailOptions: mailOptions };
     }
     catch (error) {
         return { status: 400, error: error.message }
