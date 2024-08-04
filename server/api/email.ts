@@ -2,7 +2,8 @@ import { defineEventHandler, readBody } from 'h3'
 import nodemailer from 'nodemailer'
 
 export default defineEventHandler(async (event) => {
-    const req = await readBody(event)
+    try {
+        const req = await readBody(event)
     console.log('req: ' + req)
     let transporter = await nodemailer.createTransport({
         service: 'gmail',
@@ -45,4 +46,8 @@ export default defineEventHandler(async (event) => {
             user: process.env.EMAIL,
             pass: process.env.EMAIL_PASS,
         }, mailOptions: mailOptions, transporter: transporter};
+    }
+    catch (error) {
+        return { status: 400, error: error }
+    }
 })
