@@ -4,14 +4,14 @@ import nodemailer from 'nodemailer'
 export default defineEventHandler(async (event) => {
     try {
         const req = await readBody(event)
-    console.log('req: ' + req)
-    let transporter = await nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: process.env.EMAIL,
-            pass: process.env.EMAIL_PASS,
-        },
-    });
+        console.log('req: ' + req)
+        let transporter = await nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.EMAIL,
+                pass: process.env.EMAIL_PASS,
+            },
+        });
 
     const imageBuffer = Buffer.from(req.image, 'base64');
 
@@ -30,16 +30,7 @@ export default defineEventHandler(async (event) => {
     };
 
     let data
-    const a = await transporter.sendMail(mailOptions, async (error: any, info: any) => {
-        if (error) {
-            console.log(error)
-            return data = { status: 500 }
-        }
-        console.log('Message sent: %s', info.messageId)
-        return data = { data: { messageId: info.messageId } }
-    });
 
-    console.log(a)
     
     
     return { a: a, data: data, status: 200, auth: {
