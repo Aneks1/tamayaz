@@ -49,6 +49,7 @@
     </div>
 </template>
 <script>
+import nuxtStorage from 'nuxt-storage'
 export default {
     data() {
         return {
