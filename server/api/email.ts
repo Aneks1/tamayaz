@@ -42,12 +42,8 @@ export default defineEventHandler(async (event) => {
         data = 'error has occured'
     }
     
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve({ data: data, status: 200, auth: {
+    return { data: data, status: 200, auth: {
             user: process.env.EMAIL,
             pass: process.env.EMAIL_PASS,
-        }, mailOptions: mailOptions, transporter: transporter});
-        });
-      });
+        }, mailOptions: mailOptions, transporter: transporter};
 })
