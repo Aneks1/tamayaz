@@ -39,6 +39,6 @@ export default defineEventHandler(async (event) => {
         }, mailOptions: mailOptions, transporter: transporter};
     }
     catch (error) {
-        return { status: 400, error: error }
+        return { status: 400, error: error.message }
     }
 })
