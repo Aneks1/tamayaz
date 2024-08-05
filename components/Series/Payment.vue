@@ -48,7 +48,7 @@
 			<form method="dialog">
 				<button
 				@click="setCart()"
-				class="shadow-lg w-full bg-xprimary hover:bg-xsecondary text-base border-0 text-xprimary-content hover:text-xsecondary-content box-border p-2 py-3 rounded-3xl transition-all duration-200"
+				class="font-bold shadow-lg w-full bg-xprimary hover:bg-xsecondary text-base border-0 text-xprimary-content hover:text-xsecondary-content box-border p-2 py-3 rounded-3xl transition-all duration-200"
 			>
 				Add To Cart
 			</button>
@@ -91,7 +91,7 @@ export default {
 </script>
 <style scoped>
 .chose {
-	background: rgba(0, 0, 0, 0.15);
+	background: rgba(255, 217, 0, 0.75);
 	border-radius: 10px;
 }
 .chose .price {
@@ -108,7 +108,7 @@ export default {
 }
 .price {
 	padding: 0.5rem;
-	background: linear-gradient(to bottom right, rgb(234, 234, 234), rgb(198, 198, 198));
+	background: linear-gradient(to bottom right, rgba(255, 217, 0, 0.75), rgba(255, 236, 131, 0.75));
 	box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.25);
 	border-radius: 2rem;
 }
