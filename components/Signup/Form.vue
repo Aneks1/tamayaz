@@ -44,12 +44,15 @@
                     </form>
                 </div>
             </div>
-        </div>s
+        </div>
+        <secondform></secondform>
     </div>
 </template>
 <script>
 import nuxtStorage from 'nuxt-storage'
+import Secondform from './Secondform.vue'
 export default {
+  components: { Secondform },
     data() {
         return {
             email: '',

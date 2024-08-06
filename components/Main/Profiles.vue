@@ -9,18 +9,20 @@
 						v-for="(item, index) in items"
 						:key="index"
 					>
-						<div class="flex flex-col xl:flex-row items-start gap-4">
-							<img :src="item.img" class="rounded-l-lg w-full xl:w-32 h-full" />
-							<div class="flex flex-col justify-between box-border w-full h-full p-2">
-								<div>
-									<p class="text-xl font-medium text-xprimary-content">
+					<div class="flex flex-col items-start gap-4">
+						<img :src="item.img" class="rounded-t-lg h-76 w-full" /> 
+						<div class="flex flex-col justify-between w-full h-full p-4">
+								<div class="pb-2">
+									<p
+										class="text-xl font-medium text-xprimary-content text-center"
+									>
 										{{ item.name }}
 									</p>
-									<p class="text-md text-xsecondary-content">
+									<p class="text-md text-xsecondary-content text-center">
 										{{ item.org }}
 									</p>
 								</div>
-								<div class="w-full p-2 box-border">
+								<div class="w-full p-2 rounded-lg">
 									<div
 										class="flex items-center justify-between text-md text-gray-400 dark:text-black"
 									>
@@ -167,7 +169,16 @@ export default {
 .keen-slider {
 	flex: 1; /* Allow the slider to take up available space */
 }
-
+.card-bg {
+	background: linear-gradient(to bottom right, rgb(250, 250, 250), rgb(245, 245, 245));
+	border: 1px solid rgba(0, 0, 0, 0.05);
+	box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+}
+.card-bg:hover {
+	transition: all 0.5s;
+	background: #d9d9d9;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+}
 .arrow {
 	width: 30px;
 	height: 30px;

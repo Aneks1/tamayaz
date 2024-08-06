@@ -2,7 +2,7 @@
 	<div class=" bg-gradient-to-t from-base-100 via-base-100 to-base-100/95">
 		<div class="mx-auto py-32">
 			<div
-				class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12"
+				class="text-center mb-12 flex flex-col justify-center items-center w-screen box-border px-20"
 			>
 				<h2
 					class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-base-content sm:text-4xl md:mx-auto"
