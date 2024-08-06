@@ -180,5 +180,6 @@ export default {
 	background: linear-gradient(to bottom right, rgb(250, 250, 250), rgb(245, 245, 245));
 	border: 1px solid rgba(0, 0, 0, 0.05);
 	box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+	border: 2px solid #ffa400;
 }
 </style>
