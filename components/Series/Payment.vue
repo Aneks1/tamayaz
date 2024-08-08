@@ -1,5 +1,5 @@
 <template>
-	<dialog id="my_modal_1" class="modal modal-bottom sm:modal-middle">
+	<dialog id="my_modal_1" class="modal modal-middle">
 		<div class="modal_container bg-base-100 text-base-content relative">
 			<form method="dialog" class="absolute top-2 right-2">
 				<button class="btn btn-sm btn-circle btn-ghost">

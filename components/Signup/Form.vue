@@ -1,6 +1,6 @@
 <template>
-    <div class="form-bg w-vw h-screen w-screen flex flex-row items-center justify-center">
-        <div class="h-screen w-full flex flex-col justify-center items-center">
+    <div class="form-bg w-vw h-full w-screen flex flex-col lg:flex-row gap-10 lg:gap-0 items-center justify-center">
+        <div class="h-[80vh] lg:h-screen w-1/2 flex flex-col justify-center items-center">
             <div class="signup-form">
                 <div class="w-full box-border px-10">
                     <svg
@@ -146,6 +146,12 @@ export default {
     padding-top: 2rem;
     padding-bottom: 2rem;
     gap: 6rem;
+}
+@media (max-width: 550px) {
+    .signup-form {
+        width: 100vw;
+		border-radius: 0px;
+    }
 }
 .signup-form form {
     height: fit-content;

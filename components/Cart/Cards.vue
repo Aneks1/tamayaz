@@ -14,7 +14,7 @@
     </div>
 		<div class="mx-auto py-32">
 			<div
-				class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12"
+				class="flex flex-row justify-center items-center"
 			>
 				<h2
 					class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-base-content sm:text-4xl md:mx-auto"
@@ -71,9 +71,9 @@
 				</button>
 			</div>
 			<div
-				class="max-w-xl my-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12"
+				class="flex flex-row justify-center items-center"
 			>
-			<a href="/signup" class="shadow-lg px-10 font-bold bg-xprimary hover:bg-xsecondary text-base border-0 text-xprimary-content hover:text-xsecondary-content box-border p-2 py-3 rounded-3xl transition-all duration-200">Checkout</a>
+				<a href="/signup" class="shadow-lg px-10 font-bold bg-xprimary hover:bg-xsecondary text-base border-0 text-xprimary-content hover:text-xsecondary-content box-border p-2 py-3 rounded-3xl transition-all duration-200">Checkout</a>
 			</div>
 		</div>
 	</div>

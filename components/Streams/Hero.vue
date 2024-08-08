@@ -15,7 +15,7 @@
 					<p class="py-6 text-xaccent px-8 md:px-0">Slogan</p>
 				</div>
 				<div
-					class="md:p-0 p-2 flex items-center justify-center min-h-full max-w-screen-2xl w-full basis-2/3 bg-transparent"
+					class="w-screen flex flex-row justify-center items-center"
 				>
 					<iframe
 						ref="example"
@@ -23,7 +23,7 @@
 						frameborder="0"
 						allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
 						title="Super"
-						class="bg-transparent 2xl:w-[860px] 2xl:h-[440px] xl:w-[660px] xl:h-[340px] lg:w-[470px] lg:h-[264px] md:w-[530px] md:h-[210px] sm:w-[510px] sm:h-[287px] medium:w-[392px] medium:h-[221px] smoll:h-[194px] smoll:w-[345px] w-[288px] h-[127px] rounded-lg"
+						class="bg-transparent 2xl:w-[860px] 2xl:h-[440px] xl:w-[660px] xl:h-[340px] lg:w-[470px] lg:h-[264px] md:w-[540px] md:h-[220px] sm:w-[520px] sm:h-[297px] medium:w-[412px] medium:h-[241px] smoll:h-[214px] smoll:w-[365px] w-[308px] h-[147px] rounded-lg"
 					></iframe>
 				</div>
 			</div>
